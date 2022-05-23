@@ -41,7 +41,8 @@ Answers for the data in the `emails` directory are provided in the following fil
 
 ## Rules & hints
 - use Python 3.10
-- Remeber to use the commands provided in the task names, e.g. to obtain the list of incorrect emails use `--incorrect-emails` command 
+- Remeber to use the commands provided in the task names, e.g. to obtain the list of incorrect emails use `--incorrect-emails` command
+- Follow the format of the answers as in provided answer files
 - **use OOP paradigm**
 - You are free to use any third-party libraries
 - Provide README with examples of how to use your script
