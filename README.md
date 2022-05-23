@@ -5,18 +5,18 @@ Good luck!
 ## Background
 There is a directory with files with emails and logs of sent emails. We would like you to build a script/CLI that performs some operations on the email data.
 
-We would like you to perform some operations on the data.
 ## Specifications
 All files with emails are stored in the `emails` directory. Each file is one of two types:
 - `txt`: one email per line
 - `csv`: in the first column `username`, in the second one `email`
 
 **Important!**  
-When any operation is performed on the data, remember to reject duplicates and incorrect emails.  
-Email is considered valid if:
+When any operation is performed on the data, remember to reject duplicates and incorrect emails (except task 1).  
+Email is considered valid if (for the sake of simplicity):
 - there is only one `@`
 - length of the part before the `@` is at least 1
-- length of the part after `@` is at least 1
+- length of the part between `@`  and `.` is at least 1
+- length of the part after the last `.` is at least 1 and at most 4 and contains only letters and/or digits
 
 ## Tasks
 For each task, there is separate command **written in parentheses**.
@@ -41,6 +41,7 @@ Answers for the data in the `emails` directory are provided in the following fil
 
 ## Rules & hints
 - use Python 3.10
+- Remeber to use the commands provided in the task names, e.g. to obtain the list of incorrect emails use `--incorrect-emails` command 
 - **use OOP paradigm**
 - You are free to use any third-party libraries
 - Provide README with examples of how to use your script
