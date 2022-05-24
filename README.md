@@ -6,7 +6,7 @@ Good luck!
 There is a directory with files with emails and logs of sent emails. We would like you to build a script/CLI that performs some operations on the email data.
 
 ## Specifications
-All files with emails are stored in the `emails` directory. Each file is one of two types:
+All files (with random names) with emails are stored in the `emails` directory. Each file is one of two types:
 - `txt`: one email per line
 - `csv`: in the first column `username`, in the second one `email`
 
