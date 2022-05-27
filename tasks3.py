@@ -93,6 +93,6 @@ with open('task_3_answer.txt', 'w') as f:
         for i in list_out_of_duplications:
             if (re.search(k, i)):
                 print(i)
-                f.write(i + '\n')
+                f.write('\t' + i + '\n')
 
 
