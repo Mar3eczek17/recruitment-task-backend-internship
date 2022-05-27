@@ -49,8 +49,14 @@ for i in lista_with_out_inccorects:
         newlist.append(i)
 print(newlist)
 
+print("Write your string argument below:")
+user_input = input()
 
-
-
-
+filter_object = filter(lambda a: user_input in a, newlist)
+b = (len(list(filter_object)))
+print(f"Found emails with '{user_input}' in email ({b}):")
+filter_object = filter(lambda a: user_input in a, newlist)
+# print(list(filter_object))
+for x in filter_object:
+    print(x)
 
