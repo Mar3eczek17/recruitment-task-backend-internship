@@ -27,7 +27,11 @@ with open('emails/emails3.txt', 'r') as f:
             # print(row)
 print(f"Invalid emails ({count}):")
 
-for x in lista:
-    print(x)
+# for x in lista:
+#     print(x, end='')
 
-
+with open('task_1_answer.txt', 'w') as f:
+    f.write(f'Invalid emails ({count}):' + '\n')
+    for x in lista:
+        print(x)
+        f.write(x)
