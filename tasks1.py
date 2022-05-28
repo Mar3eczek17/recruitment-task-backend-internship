@@ -30,8 +30,9 @@ print(f"Invalid emails ({count}):")
 # for x in lista:
 #     print(x, end='')
 
+#  Zapisywanie do pliku
 with open('task_1_answer.txt', 'w') as f:
     f.write(f'Invalid emails ({count}):' + '\n')
     for x in lista:
-        print(x)
-        f.write(x)
+        print(x, end='')
+        f.write('\t' + x)

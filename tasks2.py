@@ -57,6 +57,10 @@ b = (len(list(filter_object)))
 print(f"Found emails with '{user_input}' in email ({b}):")
 filter_object = filter(lambda a: user_input in a, newlist)
 # print(list(filter_object))
-for x in filter_object:
-    print(x)
 
+# Zapisywanie do pliku
+with open('task_2_answer.txt', 'w') as f:
+    f.write(f'Found emails with "{user_input}" in email ({b}):' + '\n')
+    for x in filter_object:
+        print(x, end='')
+        f.write('\t' + x)

@@ -4,7 +4,7 @@ import re
 regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{1,4}$'
 count = 0
 lista = []
-f = open('emails/emails3.txt', 'r')  # zmienić odczytywany plik tu i poniżej
+f = open('emails/email-pack-1.txt', 'r')  # zmienić odczytywany plik tu i poniżej
 for row in f:
     if not "@" in row:
         count += 1
@@ -37,15 +37,7 @@ print(converted_list)
 # print(lista)
 print("------------")
 
-# full_lista = []
-# with open('emails/emails3.txt', 'r') as f:  # zmienić odczytywany plik
-#     for line in f:
-#         print(line, end='')
-# # for x in full_lista:
-# #     print(x)
-# print("\n+++++++++++++++")
-
-file = open('emails/emails3.txt', 'r')
+file = open('emails/email-pack-1.txt', 'r')
 file_lines = file.read()
 full_lista = file_lines.split('\n')
 print(full_lista)
@@ -62,38 +54,29 @@ for i in lista_with_out_inccorects:  # usunięcie duplikatów
 print(list_out_of_duplications)
 
 # zapisanie listy do pliku
-with open('dane_3.txt', 'w') as f:
-    for item in list_out_of_duplications:
-        f.write("%s\n" % item)
-
+# with open('dane_4.txt', 'w') as f:
+#     for item in list_out_of_duplications:
+#         f.write("%s\n" % item)
 print("================")
-#  grupuj maile przez domenę
-domain = []
-for i in list_out_of_duplications:
-    index = i.index("@")
-    s_id = i[index + 1:]
-    domain.append(s_id)
-    # print(s_id)
-    # print(f"Domain {s_id}:")
-print(sorted(domain))
 
-res = {}
-for i in domain:
-    res[i] = domain.count(i)
-print(res)
+# Odczytanie logów z pliku (maili) i zapisanie ich do listy
+regexx = "[a-z0-9]+[\._]?[a-z0-9]+@[a-z\.]+"
 
-od = collections.OrderedDict(sorted(res.items()))
-print(od)
-
-# Zapisywanie do pliku
-with open('task_3_answer.txt', 'w') as f:
-    for k, v in od.items():
-        # print(k, v)
-        print(f"Domain {k} ({v}):")
-        f.write(f"Domain {k} ({v}):" + '\n')
-        for i in list_out_of_duplications:
-            if (re.search(k, i)):
-                print(i)
-                f.write('\t' + i + '\n')
+f = open('email-sent.logs', 'r')
+logs = re.findall(regexx, f.read())
+print(list(set(logs)))
+print(sorted(list(set(logs))))
 
 
+# Jeśli maila z pliku txt nie ma w pliku logs, to go odejmujemy
+# i drukujemy i zapisujemy do plku txt z odpowiedzią do zadania nr 4
+answer_task_4 = [item for item in list_out_of_duplications if item not in logs]
+print(answer_task_4)
+amount_of_not_sent_emails = len(answer_task_4)
+
+# Zapisanie odpowiedzi do pliku
+with open('task_4_answer.txt', 'w') as f:
+    f.write(f'Emails not sent ({amount_of_not_sent_emails}):' + '\n')
+    for x in answer_task_4:
+        print(x, end='')
+        f.write('\t' + x + '\n')

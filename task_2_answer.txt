@@ -1,6 +1,8 @@
-Found emails with 'agustin' in email (5):
-    agustin.ziemann@hilpert.info
-    marquardt.agustina@bins.org
-    agustin16@gmail.com
-    agustina.reilly@yahoo.com
-    agustin.dare@kreiger.biz
+Found emails with "gmail" in email (7):
+	javonte.smith@gmail.com
+	pbernier@gmail.com
+	marvin.cummerata@gmail.com
+	jamar75@gmail.com
+	franecki.garth@gmail.com
+	xdouglas@gmail.com
+	norene.little@gmail.com
