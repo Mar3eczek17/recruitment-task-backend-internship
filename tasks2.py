@@ -4,8 +4,8 @@ regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{1,4}$'
 count = 0
 lista = []
 
-# Otwarcie pliku i jego walidacja
-with open('emails/emails3.txt', 'r') as f:  # Zmiana odczytywanego pliku w tym miejscu i poniżej
+# Opening the file and validating it
+with open('emails/emails3.txt', 'r') as f:  # Change the file being read at this point and below
     for row in f:
         if not "@" in row:
             count += 1
@@ -25,7 +25,7 @@ for x in lista:
     print(x, end='')
 print('\n')
 
-# Otwarcie tego samego pliku w celu pozyskania danych do usunięcia nieprawidłowych maili i duplikatów
+# Open the same file to retrieve data to delete invalid mails and duplicates
 full_lista = []
 with open('emails/emails3.txt', 'r') as f:  # Zmienić na taki sam plik jaki jest w linii nr 8
     for line in f:
@@ -34,11 +34,11 @@ for x in full_lista:
     print(x, end='')
 print('\n')
 
-# Usuwanie duplikatów i niepoprawnych maili z listy
+# Removing duplicates and incorrect e-mails from the list
 lista_with_out_inccorects = [e for e in full_lista if e not in lista]
 print(lista_with_out_inccorects)
 
-#  Usunięcie duplikatów z listy
+# Remove duplicates from the list
 list_out_of_dupications = []
 for i in lista_with_out_inccorects:
     if i not in list_out_of_dupications:
@@ -46,18 +46,18 @@ for i in lista_with_out_inccorects:
 print(list_out_of_dupications)
 print('\n')
 
-# Wprowadzenie nazwy poszukiwanej domeny
+# Enter the name of the searched domain
 print("Write your string argument below:")
 user_input = input()
 print('\n')
 
-# Przeszukiwanie listy w celu znalezienia maili o odpowiedniej domenie
+# Searching the list for emails with the correct domain
 filter_object = filter(lambda a: user_input in a, list_out_of_dupications)
 the_number_of_e_mails_found = (len(list(filter_object)))
 print(f"Found emails with '{user_input}' in email ({the_number_of_e_mails_found}):")
 filter_object = filter(lambda a: user_input in a, list_out_of_dupications)
 
-# Zapisywanie do pliku
+# Save to file
 with open('task_2_answer.txt', 'w') as f:
     f.write(f'Found emails with "{user_input}" in email ({the_number_of_e_mails_found}):' + '\n')
     for x in filter_object:

@@ -4,7 +4,7 @@ regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{1,4}$'
 count = 0
 lista = []
 
-# Otwarcie pliku i jego walidacja
+# Opening the file and validating it
 with open('emails/emails3.txt', 'r') as f:
     for row in f:
         if not "@" in row:
@@ -21,7 +21,7 @@ with open('emails/emails3.txt', 'r') as f:
             lista.append(row)
 print(f"Invalid emails ({count}):")
 
-#  Zapisywanie odpowiedzi do pliku
+#  Writing responses to a file
 with open('task_1_answer.txt', 'w') as f:
     f.write(f'Invalid emails ({count}):' + '\n')
     for x in lista:

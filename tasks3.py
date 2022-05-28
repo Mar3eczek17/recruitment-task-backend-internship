@@ -5,8 +5,8 @@ regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{1,4}$'
 count = 0
 lista = []
 
-# Otwarcie pliku i jego walidacja
-f = open('emails/emails3.txt', 'r')  # Zmiana odczytywanego pliku w tym miejscu i poniżej
+# Opening the file and validating it
+f = open('emails/emails3.txt', 'r')  # Change the file being read at this point and below
 for row in f:
     if not "@" in row:
         count += 1
@@ -32,31 +32,31 @@ for element in lista:
 print(converted_list)
 print('\n')
 
-# Otwarcie tego samego pliku w celu pozyskania danych do usunięcia nieprawidłowych maili i duplikatów
-file = open('emails/emails3.txt', 'r')  # Zmienić na taki sam plik jaki jest w linii nr 9
+# Opening the same file to retrieve data to delete invalid e-mails and duplicates
+file = open('emails/emails3.txt', 'r')  # Change to the same file as on line 9
 file_lines = file.read()
 full_lista = file_lines.split('\n')
 print(full_lista)
 print('\n')
 
-#  Usunięcie niepoprawnych maili
+#  Removal of incorrect e-mails
 lista_with_out_inccorects = [e for e in full_lista if e not in converted_list]
 print(lista_with_out_inccorects)
 
-#  Usunięcie duplikatów z listy
+#  Removal of duplicates from the list
 list_out_of_duplications = []
-for i in lista_with_out_inccorects:  # usunięcie duplikatów
+for i in lista_with_out_inccorects:  # Removal of duplicates
     if i not in list_out_of_duplications:
         list_out_of_duplications.append(i)
 print(list_out_of_duplications)
 print('\n')
 
-# zapisanie listy do pliku
+# Save the list to a file
 with open('dane_3.txt', 'w') as f:
     for item in list_out_of_duplications:
         f.write("%s\n" % item)
 
-#  Grupowanie maili na domeny
+# Grouping of emails into domains
 domain = []
 for i in list_out_of_duplications:
     index = i.index("@")
@@ -65,19 +65,19 @@ for i in list_out_of_duplications:
 print(sorted(domain))
 print('\n')
 
-# Policzenie wystąpień danej domeny
+# Counting the occurrences of a given domain
 res = {}
 for i in domain:
     res[i] = domain.count(i)
 print(res)
 print('\n')
 
-# Ułożenie alfabetyczne domen
+# Alphabetical arrangement of domains
 od = collections.OrderedDict(sorted(res.items()))
 print(od)
 print('\n')
 
-# Zapisywanie do pliku nazwy domeny, jej wystąpień i pełnych adresów e-mail
+# Saving the domain name, its instances and full e-mail addresses to the file
 with open('task_3_answer.txt', 'w') as f:
     for k, v in od.items():
         print(f"Domain {k} ({v}):")
