@@ -13,10 +13,7 @@ for row in f:
     elif row[0] == '@':
         count += 1
         lista.append(row)
-    elif '.@' in row:
-        count += 1
-        lista.append(row)
-    elif '@.' in row:
+    elif '.@' and '@.' in row:
         count += 1
         lista.append(row)
     elif not (re.search(regex, row)):
