@@ -41,6 +41,7 @@ print('\n')
 lista_with_out_inccorects = [e for e in full_lista if e not in lista]
 print(lista_with_out_inccorects)
 
+#  Usunięcie duplikatów z listy
 list_out_of_dupications = []
 for i in lista_with_out_inccorects:
     if i not in list_out_of_dupications:

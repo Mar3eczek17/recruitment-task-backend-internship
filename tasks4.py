@@ -10,23 +10,18 @@ for row in f:
     if not "@" in row:
         count += 1
         lista.append(row)
-        # print(row)
     elif row[0] == '@':
         count += 1
         lista.append(row)
-        # print(row)
     elif '.@' in row:
         count += 1
         lista.append(row)
-        # print(row)
     elif '@.' in row:
         count += 1
         lista.append(row)
-        # print(row)
     elif not (re.search(regex, row)):
         count += 1
         lista.append(row)
-        # print(row)
 print(f"Invalid emails ({count}):")
 
 for x in lista:
