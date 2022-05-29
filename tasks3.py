@@ -52,7 +52,7 @@ print(list_out_of_duplications)
 print('\n')
 
 # Save the list to a file
-with open('dane_3.txt', 'w') as f:
+with open('data_3.txt', 'w') as f:
     for item in list_out_of_duplications:
         f.write("%s\n" % item)
 
